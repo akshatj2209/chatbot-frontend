@@ -16,7 +16,7 @@ export default function BotMessage({ message }: Props) {
         height={32}
         className="max-h-8 max-w-8 shrink-0"
       />
-      <div className="bg-gray-50 py-2.5 px-3 rounded-b-[18px] rounded-r-[18px] text-gray-600 text-xs font-semibold">
+      <div className="bg-gray-200 py-2.5 px-3 rounded-b-[18px] rounded-r-[18px] text-gray-600 text-xs font-semibold">
         {message.text}
       </div>
     </div>

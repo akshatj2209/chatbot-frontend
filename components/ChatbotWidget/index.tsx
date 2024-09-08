@@ -14,8 +14,8 @@ const ChatbotWidget: React.FC = () => {
   return (
     <Card
       className={cn(
-        'flex flex-col gap-5 h-[90vh] max-h-[90vh]',
-        isMaximized ? 'w-full' : 'w-[360px]'
+        'flex flex-col gap-5 h-screen md:h-[90vh] md:max-h-[90vh] rounded-none md:rounded-lg ',
+        isMaximized ? 'w-full' : 'w-full md:w-[360px]'
       )}
     >
       <Header />

@@ -7,7 +7,7 @@ export default function ActionRow() {
     useChatContext();
   return (
     <div className="flex justify-between gap-4 text-gray-500 font-bold">
-      <div className="flex gap-3">
+      <div className="hidden md:flex gap-3">
         <button
           className="w-4 h-4 flex items-center justify-center rounded-sm hover:bg-gray-200"
           onClick={() => setIsMaximized((prev) => !prev)}
@@ -32,7 +32,7 @@ export default function ActionRow() {
         )}
       </div>
       <button
-        className="w-4 h-4 flex items-center justify-center rounded-sm hover:bg-gray-200"
+        className="ml-auto w-4 h-4 flex items-center justify-center rounded-sm hover:bg-gray-200"
         onClick={toggleChat}
         disabled={isLoading}
       >
