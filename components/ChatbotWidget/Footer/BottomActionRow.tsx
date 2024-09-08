@@ -7,8 +7,10 @@ import {
   DropdownMenuTrigger,
   DropdownMenuItem,
 } from '@/components/ui/dropdown-menu';
-import { ChevronDownIcon, SendHorizonal, Settings } from 'lucide-react';
+import { ChevronDownIcon, SendHorizonal } from 'lucide-react';
 import { useChatContext } from '@/contexts/ChatContext';
+import SettingsDropdown from './SettingsDropdown';
+import { contextOptions } from '../constants';
 
 export default function BottomActionRow() {
   const { context, setContext, isLoading, input, sendMessage } = useChatContext();
@@ -28,23 +30,16 @@ export default function BottomActionRow() {
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent className="w-56 text-gray-400 text-xs font-semibold">
-            <DropdownMenuItem className="cursor-pointer" onClick={() => setContext('Billing')}>
-              Billing
-            </DropdownMenuItem>
-            <DropdownMenuItem className="cursor-pointer" onClick={() => setContext('Deals')}>
-              Deals
-            </DropdownMenuItem>
-            <DropdownMenuItem className="cursor-pointer" onClick={() => setContext('Demo')}>
-              Demo
-            </DropdownMenuItem>
-            <DropdownMenuItem className="cursor-pointer" onClick={() => setContext('Onboarding')}>
-              Onboarding
-            </DropdownMenuItem>
+            {contextOptions.map((option) => (
+              <DropdownMenuItem key={option} className="cursor-pointer" onClick={() => setContext(option)}>
+                {option}
+              </DropdownMenuItem>
+            ))}
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
       <div className="flex gap-[18px] items-center">
-        <Settings className="w-5 h-5 text-gray-500" strokeWidth={2} />
+        <SettingsDropdown />
         <button
           className="w-6 h-6 flex items-center justify-center rounded-sm enabled:hover:bg-gray-200 disabled:opacity-40"
           onClick={sendMessage}
