@@ -31,7 +31,11 @@ export default function BottomActionRow() {
           </DropdownMenuTrigger>
           <DropdownMenuContent className="w-56 text-gray-400 text-xs font-semibold">
             {contextOptions.map((option) => (
-              <DropdownMenuItem key={option} className="cursor-pointer" onClick={() => setContext(option)}>
+              <DropdownMenuItem
+                key={option}
+                className="cursor-pointer"
+                onClick={() => setContext(option)}
+              >
                 {option}
               </DropdownMenuItem>
             ))}
