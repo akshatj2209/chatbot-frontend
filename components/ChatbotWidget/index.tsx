@@ -12,7 +12,12 @@ const ChatbotWidget: React.FC = () => {
   const { messages, isMaximized } = useChatContext();
 
   return (
-    <Card className={cn("flex flex-col gap-5 h-[90vh] max-h-[90vh]", isMaximized ? 'w-full' : 'w-[360px]')}>
+    <Card
+      className={cn(
+        'flex flex-col gap-5 h-[90vh] max-h-[90vh]',
+        isMaximized ? 'w-full' : 'w-[360px]'
+      )}
+    >
       <Header />
       <CardContent className="h-full overflow-y-auto">
         <MessageBox messages={messages} />
