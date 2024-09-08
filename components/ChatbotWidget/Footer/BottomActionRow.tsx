@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -8,9 +8,10 @@ import {
   DropdownMenuItem,
 } from '@/components/ui/dropdown-menu';
 import { ChevronDownIcon, SendHorizonal, Settings } from 'lucide-react';
+import { useChatContext } from '@/contexts/ChatContext';
 
 export default function BottomActionRow() {
-  const [context, setContext] = useState<string>('Onboarding');
+  const { context, setContext, isLoading, input, sendMessage } = useChatContext();
 
   return (
     <div className="flex flex-row justify-between items-center">
@@ -44,7 +45,13 @@ export default function BottomActionRow() {
       </div>
       <div className="flex gap-[18px] items-center">
         <Settings className="w-5 h-5 text-gray-500" strokeWidth={2} />
-        <SendHorizonal className="w-5 h-5 text-gray-500" strokeWidth={2} />
+        <button
+          className="w-6 h-6 flex items-center justify-center rounded-sm enabled:hover:bg-gray-200 disabled:opacity-40"
+          onClick={sendMessage}
+          disabled={isLoading || !input.length}
+        >
+          <SendHorizonal className="w-5 h-5 text-gray-500" strokeWidth={2} />
+        </button>
       </div>
     </div>
   );
