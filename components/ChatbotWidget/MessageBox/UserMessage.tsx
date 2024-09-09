@@ -37,17 +37,11 @@ export default function UserMessage({ message }: Props) {
       )}
       <div className="absolute -top-2 -right-2 opacity-0 group-hover:opacity-100 transition-opacity">
         {isEditing ? (
-          <button
-            onClick={handleSave}
-            className="bg-green-500 p-1 rounded-full text-white"
-          >
+          <button onClick={handleSave} className="bg-green-500 p-1 rounded-full text-white">
             <Check size={16} />
           </button>
         ) : (
-          <button
-            onClick={handleEdit}
-            className="bg-gray-200 p-1 rounded-full text-gray-600"
-          >
+          <button onClick={handleEdit} className="bg-gray-200 p-1 rounded-full text-gray-600">
             <Edit2 size={16} />
           </button>
         )}

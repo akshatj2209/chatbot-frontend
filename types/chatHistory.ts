@@ -1,5 +1,4 @@
-
 export type GeminiMessage = {
-    role: 'user' | 'model';
-    parts: string;
-}
+  role: 'user' | 'model';
+  parts: string;
+};
