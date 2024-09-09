@@ -33,3 +33,19 @@ export async function PUT(request: Request) {
     return NextResponse.json({ error: 'Failed to fetch response from chatbot' }, { status: 500 });
   }
 }
+
+export async function DELETE(request: Request) {
+  try {
+    const { conversationId, messageId } = await request.json();
+    const response = await fetchFromAPI(
+      `/api/v1/conversations/${conversationId}/messages/${messageId}`,
+      {
+        method: 'DELETE',
+      }
+    );
+    return NextResponse.json(response);
+  } catch (error) {
+    console.error('Error in chat API route:', error);
+    return NextResponse.json({ error: 'Failed to fetch response from chatbot' }, { status: 500 });
+  }
+}
