@@ -5,10 +5,12 @@ import { fetchFromAPI } from '@/lib/api';
 
 export async function POST(request: Request) {
   try {
-    const { message, conversationId } = await request.json();
+    const { message, conversationId, language, context } = await request.json();
+    console.log('language:', language);
+    console.log('context:', context);
     const response = await fetchFromAPI(`/api/v1/conversations/${conversationId}/messages`, {
       method: 'POST',
-      body: JSON.stringify({ sender: 'user', content: message }),
+      body: JSON.stringify({ message: { sender: 'user', content: message }, language: language, context: context }),
     });
     return NextResponse.json(response);
   } catch (error) {
@@ -19,12 +21,12 @@ export async function POST(request: Request) {
 
 export async function PUT(request: Request) {
   try {
-    const { message, conversationId, messageId } = await request.json();
+    const { message, conversationId, messageId, language, context } = await request.json();
     const response = await fetchFromAPI(
       `/api/v1/conversations/${conversationId}/messages/${messageId}`,
       {
         method: 'PUT',
-        body: JSON.stringify({ content: message }),
+        body: JSON.stringify({ message: { content: message }, language: language, context: context }),
       }
     );
     return NextResponse.json(response);

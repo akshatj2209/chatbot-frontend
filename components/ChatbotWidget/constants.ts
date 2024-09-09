@@ -4,6 +4,4 @@ export const contextOptions = [
   'Onboarding',
   'Customer Support',
   'Technical Support',
-  'Sales',
-  'Marketing',
 ];
