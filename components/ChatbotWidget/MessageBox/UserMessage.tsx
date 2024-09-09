@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { Message } from "../types";
-import { useChatContext } from "@/contexts/ChatContext";
-import { Check, Edit2, Trash2 } from "lucide-react";
+import { useState } from 'react';
+import { Message } from '../types';
+import { useChatContext } from '@/contexts/ChatContext';
+import { Check, Edit2, Trash2 } from 'lucide-react';
 
 type Props = {
   message: Message;
@@ -48,7 +48,10 @@ export default function UserMessage({ message }: Props) {
           </button>
         ) : (
           <>
-            <button onClick={handleEdit} className="bg-gray-200 p-1 rounded-full text-gray-600 mr-1">
+            <button
+              onClick={handleEdit}
+              className="bg-gray-200 p-1 rounded-full text-gray-600 mr-1"
+            >
               <Edit2 size={16} />
             </button>
             <button onClick={handleDelete} className="bg-red-500 p-1 rounded-full text-white">
