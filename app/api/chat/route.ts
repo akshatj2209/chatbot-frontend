@@ -10,7 +10,11 @@ export async function POST(request: Request) {
     console.log('context:', context);
     const response = await fetchFromAPI(`/api/v1/conversations/${conversationId}/messages`, {
       method: 'POST',
-      body: JSON.stringify({ message: { sender: 'user', content: message }, language: language, context: context }),
+      body: JSON.stringify({
+        message: { sender: 'user', content: message },
+        language: language,
+        context: context,
+      }),
     });
     return NextResponse.json(response);
   } catch (error) {
@@ -26,7 +30,11 @@ export async function PUT(request: Request) {
       `/api/v1/conversations/${conversationId}/messages/${messageId}`,
       {
         method: 'PUT',
-        body: JSON.stringify({ message: { content: message }, language: language, context: context }),
+        body: JSON.stringify({
+          message: { content: message },
+          language: language,
+          context: context,
+        }),
       }
     );
     return NextResponse.json(response);
